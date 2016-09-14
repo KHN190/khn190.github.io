@@ -17,7 +17,7 @@ title: knh190
 email: knh190 at hotmail.com
 description: "" # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://knh190.github.com" # the base hostname & protocol for your site
+url: "https://knh190.github.io" # the base hostname & protocol for your site
 twitter_username: ""
 github_username: knh190
 
