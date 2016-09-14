@@ -48,7 +48,7 @@ insert into info_shorts(movie_id, value, crawler) values(737, 'some value', 'cra
 
 这时你见到了鬼，导致你从凳子上跳了起来：执行完全正确。
 
-你是一个意志坚强的人，所以你打算继续看下去，现在你一行一行地在 console 中执行 `Info.save` 的操作...运气来临了。不，不是在命令行中找到了错误，你发现了一个类似 typo 的东西：InfoShort 所必须的 movie_id 虽然被传入 params，但你不小心漏掉了一行，导致这个新建的 InfoShort 记录该项没有被赋值！你恍然大悟，加入了一行：
+但你是一个意志坚强的人，所以你打算继续看下去，现在你一行一行地在 console 中执行 `Info.save` 的操作...运气来临了。不，不是在命令行中找到了错误，你发现了一个类似 typo 的东西：InfoShort 所必须的 movie_id 虽然被传入 params，但你不小心漏掉了一行，导致这个新建的 InfoShort 记录该项没有被赋值！你恍然大悟，加入了一行：
 
 {% highlight ruby %}
 class Info
@@ -63,6 +63,7 @@ class Info
     end
     obj.save
   end
+end
 {% endhighlight %}
 
 你再执行 save 操作，终于成功了！但是等等，为什么 create 方法没有报错？你在 stackoverflow 上搜索一番，发现这个帖子：http://stackoverflow.com/questions/9791386/differences-between-new-save-and-create
