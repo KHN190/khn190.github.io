@@ -66,7 +66,7 @@ class Info
 end
 {% endhighlight %}
 
-你再执行 save 操作，终于成功了！但是等等，为什么 create 方法没有报错？你在 stackoverflow 上搜索一番，发现这个帖子：http://stackoverflow.com/questions/9791386/differences-between-new-save-and-create
+你再执行 save 操作，终于成功了！但是等等，为什么 create 方法没有报错？你在 stackoverflow 上搜索一番，发现这个帖子：[Differences between new-save and create](http://stackoverflow.com/questions/9791386/differences-between-new-save-and-create)
 
 原来 create 虽然调用 new 和 save 方法，但它的“可以”是不管是否 save 成功的！你又看了看 migrate 记录，发现数据表单是这么写的：
 
