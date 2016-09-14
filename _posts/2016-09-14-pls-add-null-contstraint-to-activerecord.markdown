@@ -28,6 +28,10 @@ class Info
     end
     obj.save
   end
+end
+
+# call this method
+Director.save(params) # Failed.
 {% endhighlight %}
 
 同样地，你注意到，在 console 中尝试：
