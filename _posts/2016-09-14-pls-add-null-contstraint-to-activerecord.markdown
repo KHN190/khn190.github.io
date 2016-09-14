@@ -2,7 +2,7 @@
 layout: post
 title:  "Ruby on Rails：请加上 null: true 限制"
 date:   2016-09-14 16:33:39 +0800
-categories: jekyll update
+categories: ruby-on-rails
 ---
 
 设想有这样一个架构：一类信息我们叫作 InfoShort（电影短信息），一类信息继承自它，比如说 Director（电影导演）。继承结构如下：
