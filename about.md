@@ -7,7 +7,7 @@ permalink: /about/
 categories: about
 ---
 
-I'm an un-experienced engineer living in China. Guess that's why I frequently run into more build failures than others. I do freelancing to make a living, and principally code in Python and Ruby. But also some Latex and C.
+I'm an un-experienced engineer living in China. Guess that's why I frequently run into more build failures than others. I do freelancing to make a living, and principally code in Python and Ruby. But also some Latex and C. Currently I'm [learning Common Lisp](https://github.com/KHN190/puzzle) in some hard way.
 
 I tried to be academic in university, here is a [failed example](https://github.com/KHN190/torch-rnn).
 
