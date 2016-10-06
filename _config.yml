@@ -1,3 +1,4 @@
 name: Build Failure
 # markdown: redcarpet
-highlighter: pygments
+# highlighter: pygments
+highlighter: rouge
