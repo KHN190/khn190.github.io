@@ -40,7 +40,7 @@
         </div>
         <div class="posts">
           <ul class="posts-list">
-            {% for post in site.posts %}
+            {% for post in site.posts limit: 3 %}
               <li class="post-link">
                 <a class="post-title" href="{{ post.url }}">
                   <span class="post-date">{{ post.date | date_to_string }}</span>
@@ -54,6 +54,7 @@
           <span id="footer-links">
             <a href="/" class="footer-link">Home</a> <span class="separator">&bull;</span>
             <a href="/about" class="footer-link">About</a> <span class="separator">&bull;</span>
+            <a href="/archive" class="footer-link">Archive</a> <span class="separator">&bull;</span>
             <a href="https://github.com/KHN190" class="footer-link">GitHub</a>
           </span>
         </div>
