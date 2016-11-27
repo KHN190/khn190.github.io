@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Archive
-cover: cover.png
+cover: archive.jpg
 date:  2016-11-27 13:10:00 +0800
 permalink: /archive/
 categories: archive
