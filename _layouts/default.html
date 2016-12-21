@@ -36,11 +36,11 @@
         <div class="header">
           <h1 class="title"><a href="/"><img id="logo" src="/images/logo.jpg"></a></h1>
           <span class="tagline">"As long as I figured out where death is, I'll never go there."</span>
-          <span class="tagline"> - A joke I read from Charles Munger's book "Poor Charlie's Almanack".</span>
+          <span class="tagline"> - "Poor Charlie's Almanack" by Charles Munger.</span>
         </div>
         <div class="posts">
           <ul class="posts-list">
-            {% for post in site.posts limit: 3 %}
+            {% for post in site.posts limit: 2 %}
               <li class="post-link">
                 <a class="post-title" href="{{ post.url }}">
                   <span class="post-date">{{ post.date | date_to_string }}</span>
