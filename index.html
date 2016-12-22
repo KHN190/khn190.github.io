@@ -1,8 +1,36 @@
 ---
 layout: default
 title: Home
+cover: cover.png
 ---
 
-{% assign page = site.posts.first %}
-{% assign content = page.content %}
-{% include post.html %}
+<div class="content" id="home">
+  <div id="sidebar-button">
+    <img src="/images/sidebar-button.png">
+  </div>
+  <div id="post-info">
+    <div id="cover-photo-container">
+      <img id="cover-photo" src="/images/{{ page.cover }}">
+    </div>
+  </div>
+
+  <div class="posts">
+    <ul class="posts-list">
+      {% for post in site.posts limit: 1 %}
+        <li class="post-link">
+          <a class="post-title" href="{{ post.url }}">
+            <span class="post-date">{{ post.date | date_to_string }}</span>
+            {{ post.title }}
+          </a>
+        </li>
+      {% endfor %}
+      <br>
+      <li class="post-link">
+        <a class="post-title" href="/archive">
+          Continue Reading >
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>

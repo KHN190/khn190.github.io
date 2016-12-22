@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "诗歌和λ演算"
-cover: cover.png
+cover: null.png
 date:   2016-10-07 00:33:00 +0800
 categories: lisp
 ---

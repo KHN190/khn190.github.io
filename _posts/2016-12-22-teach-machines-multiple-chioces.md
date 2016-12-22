@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Teaching Machines to Complete Multiple Choices"
-cover: cover.png
+cover: null.png
 date:   2016-11-26 01:52:00 +0800
 categories: read scifi
 ---

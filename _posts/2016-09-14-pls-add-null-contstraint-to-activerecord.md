@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ruby on Rails：请加上 null: true 限制"
-cover: cover.png
+cover: null.png
 date:   2016-09-14 16:33:39 +0800
 categories: ruby-on-rails
 ---

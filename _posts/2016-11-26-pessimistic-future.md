@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "韩松：对未来的悲观"
-cover: cover.png
+title:  "对未来的悲观"
+cover: null.png
 date:   2016-11-26 01:52:00 +0800
 categories: read scifi
 ---
