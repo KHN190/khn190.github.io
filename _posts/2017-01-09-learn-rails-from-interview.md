@@ -42,6 +42,8 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails Engine
 
+引擎实际上就是一个半独立/完全独立的 Application，通过 Routing 挂载在应用上。Devise 就是一个 Rails 引擎。另外基于和 git 交互的 GitHub 风格的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。一种应用场景是某天有一个临时活动，需要挂载一些临时的逻辑，你不想把它写入永久性的工程，所以你把它实现成一个引擎，暂时挂载在 route 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。尤其是大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持。第二种应用需要在 Rack 层增加检测的逻辑。
+
 ## Rails 的依赖
 
 ## HTTP 协议中 request 和 response 包括什么内容？
