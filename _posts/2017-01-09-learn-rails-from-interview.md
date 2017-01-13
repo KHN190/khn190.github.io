@@ -22,7 +22,22 @@ transaction 中的 rollback 和 commit 方法和以上没有本质区别，只�
 
 ## ActiveSupport::Concern
 
+实为 Mixin 方法。为 Rails 框架下的 Module 提供了统一的接口。类似的有对 Hash 的拓展 [Hashie](https://github.com/intridea/hashie)。
+
+1. [API 文档](http://api.rubyonrails.org/classes/ActiveSupport/Concern.html)
+2. [Blog: ActiveSupport Digression](http://www.zhubert.com/blog/2013/06/13/activesupport-concern-digression/)
+3. [Blog: Put Chubby Models on a Diet With ActiveSupport](https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns)
+4. [ActiveSupport for All Obejcts & Model Extensions & Class Extensions & Ruby Types](http://guides.rubyonrails.org/active_support_core_extensions.html)
+
 ## Rack 的作用
+
+1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
+2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
+3. [Rails on Rack](http://guides.rubyonrails.org/rails_on_rack.html)
+4. [RailsCasts: Rack Middleware](http://railscasts.com/episodes/151-rack-middleware)
+5. [Stackoverflow: What is Rack Middleware?](http://stackoverflow.com/questions/2256569/what-is-rack-middleware)
+6. [Writing Rails Middleware](http://ieftimov.com/writing-rails-middleware)
+7. [Understanding Rack Apps and Middleware](https://blog.engineyard.com/2015/understanding-rack-apps-and-middleware)
 
 ## ActiveRecord 如何实现 Scope
 
@@ -62,7 +77,9 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails Engine
 
-引擎实际上就是一个半独立/完全独立的 Application，通过 Routing 挂载在应用上。Devise 就是一个 Rails 引擎。另外基于和 git 交互的 GitHub 风格的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。一种应用场景是某天有一个临时活动，需要挂载一些临时的逻辑，你不想把它写入永久性的工程，所以你把它实现成一个引擎，暂时挂载在 route 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。尤其是大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持。第二种应用需要在 Rack 层增加检测的逻辑。
+引擎实际上就是一个半独立/完全独立的 Application，通过路由挂在应用上。Devise 就是一个 Rails 引擎。另外基于和 git 交互的 GitHub 风格的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持。第三种和 Devise 一样，需要和数据库交互，逻辑比较复杂，有自己的一套完整的业务逻辑，也需要使用 Rails Engine 实现。
+
+[创建 Rails 插件](http://guides.rubyonrails.org/plugins.html)。
 
 ## HTTP 协议中 request 和 response 包括什么内容？
 
