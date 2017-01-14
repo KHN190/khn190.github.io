@@ -33,6 +33,23 @@ transaction 中的 rollback 和 commit 方法和以上没有本质区别，只�
 
 Rack 实际上就是 HTTP 协议的一个 Wrapper，好比 GitHub 的接口有 Omniauth-Github，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。显而易见地，在 Rack 源代码中对 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 的处理就能看出 Rack 的角色。和 Omniauth 这类 API wrapper 的区别是，HTTP 协议是传输层的，而 API 是应用层的。
 
+Rack 另外还提供了 Middleware Chain，用以搭建 Rack App，比如使用 Warden 作为身份验证的中间件：
+
+```ruby
+failure_app = Proc.new { |env| ['401', {'Content-Type' => 'text/html'}, ["UNAUTHORIZED"]] }
+
+app = Rack::Builder.new do
+  use Rack::Session::Cookie, secret: "MY_SECRET"
+
+  use Warden::Manager do |manager|
+    manager.default_strategies :password, :basic
+    manager.failure_app = failure_app
+  end
+end
+
+run app
+```
+
 1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
 2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
 3. [Rails on Rack](http://guides.rubyonrails.org/rails_on_rack.html)
@@ -79,7 +96,7 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails Engine
 
-引擎实际上就是一个半独立/完全独立的 Application，通过路由挂在应用上。Devise 就是一个 Rails 引擎。另外基于和 git 交互的 GitHub 风格的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持。第三种和 Devise 一样，需要和数据库交互，逻辑比较复杂，有自己的一套完整的业务逻辑，也需要使用 Rails Engine 实现。
+引擎实际上就是一个半独立/完全独立的 Application，通过路由挂在应用上。Devise 就是一个 Rails 引擎。另外基于和 git 交互的 GitHub 风格的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。我的第一个 Rails 工作就有这样的事情，只不过我把这个逻辑实现在另一个完整的 Application 里面，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持。第三种和 Devise 一样，需要和数据库交互，逻辑比较复杂，有自己的一套完整的业务逻辑，也需要使用 Rails Engine 实现。
 
 [创建 Rails 插件](http://guides.rubyonrails.org/plugins.html)。
 
@@ -93,3 +110,4 @@ Cookies 和 Session 目的是解决 HTTP 连接无状态的问题，最早由 Ne
 
 ## 如何传输信息实现登录？
 
+这是个不太好的问题。具体依赖于实现。以 Devise 为例，它依赖于 Warden 来处理身份验证，自己在其上另外实现了一套较复杂的逻辑，例如提供 views、helpers、变量名约定、csrf 防止等。而 Warden 则依赖 Rack::Session::Cookie，具体在 Cookie 中有什么内容需要查看源码/抓包分析。基本原理和上述 Cookie/Session 机制是一致的。
