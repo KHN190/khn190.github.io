@@ -31,7 +31,7 @@ transaction 中的 rollback 和 commit 方法和以上没有本质区别，只�
 
 ## Rack 的作用
 
-Rack 实际上就是 HTTP 协议的一个 Wrapper，好比 GitHub 的接口有 Omniauth-Github，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。显而易见地，在 Rack 源代码中对 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 的处理就能看出 Rack 的角色。和 Omniauth 这类 API wrapper 的区别是，HTTP 协议是传输层的，而 API 是应用层的。
+Rack 实际上就是 HTTP 协议的一个 Wrapper，好比 GitHub 的接口有 Omniauth-Github，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。显而易见地，在 Rack 源代码中对 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 的处理就能看出 Rack 的角色。和 Omniauth 这类 API wrapper 的区别是，HTTP 协议是传输层的，而 API 是应用层的。传统的负载均衡器是在传输层，比如 Nginx 服务器，而 GitHub 的负载均衡是分为两层其中一层[用 Rails 实现的](https://github.com/blog/530-how-we-made-github-fast)。去年底他们[更新了这个项目](http://githubengineering.com/introducing-glb/)。
 
 Rack 另外还提供了 Middleware Chain，用以搭建 Rack App，比如使用 Warden 作为身份验证的中间件：
 
@@ -49,6 +49,8 @@ end
 
 run app
 ```
+
+References:
 
 1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
 2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
@@ -110,4 +112,4 @@ Cookies 和 Session 目的是解决 HTTP 连接无状态的问题，最早由 Ne
 
 ## 如何传输信息实现登录？
 
-这是个不太好的问题。具体依赖于实现。以 Devise 为例，它依赖于 Warden 来处理身份验证，自己在其上另外实现了一套较复杂的逻辑，例如提供 views、helpers、变量名约定、csrf 防止等。而 Warden 则依赖 Rack::Session::Cookie，具体在 Cookie 中有什么内容需要查看源码/抓包分析。基本原理和上述 Cookie/Session 机制是一致的。
+这是个不太好的问题。具体依赖于实现。以 Devise 为例，它依赖于 Warden 来处理身份验证，自己在其上另外实现了一套较复杂的逻辑，例如提供 views、helpers、数据库交互、变量名约定、csrf 验证等。而 Warden 则依赖 Rack::Session::Cookie，具体在 Cookie 中有什么内容需要查看源码/抓包分析。基本原理和上述 Cookie/Session 机制是一致的。
