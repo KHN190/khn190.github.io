@@ -31,6 +31,8 @@ transaction 中的 rollback 和 commit 方法和以上没有本质区别，只�
 
 ## Rack 的作用
 
+Rack 实际上就是 HTTP 协议的一个 Wrapper，好比 GitHub 的接口有 Omniauth-Github，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。显而易见地，在 Rack 源代码中对 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 的处理就能看出 Rack 的角色。和 Omniauth 这类 API wrapper 的区别是，HTTP 协议是传输层的，而 API 是应用层的。
+
 1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
 2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
 3. [Rails on Rack](http://guides.rubyonrails.org/rails_on_rack.html)
