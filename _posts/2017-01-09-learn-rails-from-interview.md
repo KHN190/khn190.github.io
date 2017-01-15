@@ -88,7 +88,7 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 见 [Rails Guide](http://guides.ruby-china.org/initialization.html). 整个启动过程和 Railtie 和 Rack 密不可分，因为 Railtie 是处理各组件自身载入流程的，它独立于应用；而通过 Rack 搭建的应用则通过 Railtie 定义的 hook 方法完成检测和启动。Hook，意思是抽象类中操作子类方法的一种方法，比如：
 
-```
+```ruby
 class Foo
   def new
     if test_ok # test_ok is a hook method
