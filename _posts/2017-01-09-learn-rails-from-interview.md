@@ -8,6 +8,8 @@ categories: ruby-on-rails
 
 面试在技术问题上分为三种。一种倾向技术问题，一种倾向考察对业务逻辑的理解（架构），还有一种倾向了解你的项目经验。这里主要记录技术考察的第一类、对我来说的新问题。
 
+我发现这篇 Dropbox 的面试官关于 Product Manager 面试的谈话非常有意思：[Find, Vet and Close the Best Product Managers](http://firstround.com/review/find-vet-and-close-the-best-product-managers-heres-how/)
+
 ## Ruby 常用的元编程方法
 
 动态定义 method 的方法有 class\_eval, instance\_eval, define\_method 和 send；利用 block 构造匿名函数的方法有 select, each, map, inject 等。还有使用 Module 的方法进行元编程。主要遵循的原则是 D.R.Y，以均衡代码量和代码复杂度。
@@ -49,6 +51,8 @@ end
 
 run app
 ```
+
+中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要，但无需自主搭建。
 
 References:
 
@@ -98,13 +102,13 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails Engine
 
-引擎实际上就是一个半独立/完全独立的 Application，通过路由挂在应用上。Devise 就是一个 Rails 引擎。另外基于和 git 交互的 GitHub 风格的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。我的第一个 Rails 工作就有这样的事情，只不过我把这个逻辑实现在另一个完整的 Application 里面，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持。第三种和 Devise 一样，需要和数据库交互，逻辑比较复杂，有自己的一套完整的业务逻辑，也需要使用 Rails Engine 实现。
+引擎就是一个半独立/完全独立的 Application，通过路由挂在应用上。Rails::Application 直接继承自 Rails::Engine，例如 Devise 就是一个 Rails 引擎，另外基于 git 的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。实际应用中，比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。比如我曾经需要在一个商城中挂载一个福袋页面，我将逻辑实现在另一个完整的应用中，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持，通过 Rack 任务去检测环境，进行加载。第三种和 Devise 一样，需要和数据库/视图交互，提供自己的一套完整的业务逻辑。
 
 [创建 Rails 插件](http://guides.rubyonrails.org/plugins.html)。
 
 ## HTTP 协议中 request 和 response 包括什么内容？
 
-默认讲述的是 HTTP/2.0，这个版本的协议在同一个 Connection 下使用 Stream 和实现于客户端/服务器的 Flow Control 来管理连接，数据则有不同类型的帧 (Frame) 表示。在启动 HTTP 连接的阶段，会发送特殊的 Header 和相应的 Settings Frame (可能为空)。服务器推送到客户端则会由服务器发送 Push_Promise Frame。而普通的请求是由客户端发送 Header 和 Data 到服务器，响应是从服务器到客户端，同样包括 Header 和 Data，帧类型取决于两者协议的内容。推送的响应和普通响应一致。Header 包括权重，Stream 依赖，Stream ID 等等数据。API 全称则是 Application Programming Interface，是实现于应用层的一种可编程协议，底层则是 HTTP/HTTPS 连接，API 数据作为 HTTP(S) 协议的数据发送，对应服务器上的服务则是，HTTP 请求由 Nginx 等生产服务器处理，API 请求由 Rails Application 处理。原生 HTTP 协议不包括任何状态和加密，可使用 Cookie 和 TLS 拓展协议提供相应服务。HTTP 连接的错误需要查询 Nginx 的日志，或者抓包分析。常用的 HTTP Header 项可以在 [Wikipedia 条目](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)上看到。
+默认讲述的是 HTTP/2.0，[这个版本的协议](https://tools.ietf.org/html/rfc7540)在同一个 Connection 下使用 Stream 和实现于客户端/服务器的 Flow Control 来管理连接，数据则有不同类型的帧 (Frame) 表示。在启动 HTTP 连接的阶段，会发送特殊的 Header 和相应的 Settings Frame (可能为空)。服务器推送到客户端则会由服务器发送 Push_Promise Frame。而普通的请求是由客户端发送 Header 和 Data 到服务器，响应是从服务器到客户端，同样包括 Header 和 Data，帧类型取决于两者协议的内容。推送的响应和普通响应一致。Header 包括权重，Stream 依赖，Stream ID 等等数据。API 全称则是 Application Programming Interface，是实现于应用层的一种可编程协议，底层则是 HTTP/HTTPS 连接，API 数据作为 HTTP(S) 协议的数据发送，对应服务器上的服务则是，HTTP 请求由 Nginx 等生产服务器处理，API 请求由 Rails Application 处理。原生 HTTP 协议不包括任何状态和加密，可使用 Cookie 和 TLS 拓展协议提供相应服务。HTTP 连接的错误需要查询 Nginx 的日志，或者抓包分析。常用的 HTTP Header 项可以在 [Wikipedia 条目](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)上看到。
 
 ## 简述 Cookies 和 Session 的内容和作用
 
@@ -112,4 +116,6 @@ Cookies 和 Session 目的是解决 HTTP 连接无状态的问题，最早由 Ne
 
 ## 如何传输信息实现登录？
 
-这是个不太好的问题。具体依赖于实现。以 Devise 为例，它依赖于 Warden 来处理身份验证，自己在其上另外实现了一套较复杂的逻辑，例如提供 views、helpers、数据库交互、变量名约定、csrf 验证等。而 Warden 则依赖 Rack::Session::Cookie，具体在 Cookie 中有什么内容需要查看源码/抓包分析。基本原理和上述 Cookie/Session 机制是一致的。
+具体依赖于实现。以 Devise 为例，它依赖于 Warden 来处理身份验证，自己在其上另外实现了一套较复杂的逻辑，例如提供 views、helpers、数据库交互、变量名约定、csrf 验证等。而 Warden 则依赖 Rack::Session::Cookie，具体在 Cookie 中有什么内容需要查看源码/抓包分析。基本原理和上述 Cookie/Session 机制是一致的。
+
+通常的流程是，浏览器发起一个 HTTP 请求，通过 DNS 查询出服务端的 IP 地址，服务器收到请求，检查 Cookies 和 Session 确认是否登录。最终服务器生成一个 HTTP 响应，包含了客户端应当看到的信息，并在服务器应用中设置 Session，客户端对收到的响应进行渲染。
