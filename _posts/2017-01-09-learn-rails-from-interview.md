@@ -14,13 +14,15 @@ categories: ruby-on-rails
 
 动态定义 method 的方法有 class\_eval, instance\_eval, define\_method 和 send；利用 block 构造匿名函数的方法有 select, each, map, inject 等。还有使用 Module 的方法进行元编程。主要遵循的原则是 D.R.Y，以均衡代码量和代码复杂度。
 
-## ActiveRecord 如何实现 has\_many 和 before\_do
+## ActiveRecord 如何实现 has\_many
 
-belongs\_to 和 has\_many 等模型关系见 [Rails 5 代码](https://github.com/rails/rails/blob/5-0-stable/activerecord/lib/active_record/associations.rb)，其对应关系实际上为一个 Association 的类，定义 belongs\_to 时就将该 Association 实例化。这个实例的方法包括依赖关系的定义、可接受的关键字、回调方法和内存管理。
+belongs\_to 和 has\_many 其对应关系实际上为一个 Association 类，定义 belongs\_to 时将该 Association 实例化。这个实例此时完成的工作包括，依赖关系的定义、可接受的关键字、回调方法和内存管理。模型关系见 [Rails 5 代码](https://github.com/rails/rails/blob/5-0-stable/activerecord/lib/active_record/associations.rb)。
 
-before\_do 是拓展自 ActiveSupport::Concern 的[回调函数](https://github.com/rails/rails/blob/5-0-stable/activerecord/lib/active_record/callbacks.rb#L258)，触发 before\_do 依赖于具体 action 方法中 @call\_back\_already\_called 的值，若值为 false 则设置其为 true 并调用回调函数。例如 before\_create 接受一个 symbol，在 create 方法之前则尝试使用 symbol 对应的回调方法。
+## ActionController 如何实现 before\_action
 
-transaction 中的 rollback 和 commit 方法和以上没有本质区别，只是通过 callback 函数进行额外检查。
+before\_action 是由 ActiveSupport::Concern 接口拓展的[回调函数](https://github.com/rails/rails/blob/5-0-stable/activerecord/lib/active_record/callbacks.rb#L258)，触发 before\_action 依赖于具体 action 方法中 @call\_back\_already\_called 的值，若值为 false 则设置其为 true 并调用回调函数。例如 before\_create 接受一个 symbol，在 create 方法之前则尝试使用 symbol 对应的回调方法。调用一次 before\_action 就在 actions 之前[插入一个回调](http://api.rubyonrails.org/classes/AbstractController/Callbacks/ClassMethods.html#method-i-append_before_action)。
+
+transaction 中的 rollback 和 commit 方法和上述内容没有本质区别，只是通过回调函数进行额外检查。
 
 ## ActiveSupport::Concern
 
@@ -52,9 +54,7 @@ end
 run app
 ```
 
-中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要，但无需自主搭建。
-
-References:
+中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要这些功能，但无需自主搭建。
 
 1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
 2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
@@ -70,13 +70,13 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails 启动的顺序
 
-以 rails s 为例：
+简单来说先检查依赖，加载代码，再启动 Rack，最终按组件一一加载后，启动应用。以 rails s 为例：
 
 1. 执行 bin/rails
-2. 引用 config/boot，加载 Gem 依赖
+2. 引用 config/boot，检查 Gem 依赖
 3. 引用 rails/commands，提供 rails 命令的别名和任务
 4. 执行 command_tasks
-5. [引用 action_pack 下的 action_dispatch，作为 rails 的路径组件]
+5. [引用 action_pack 下的 action_dispatch，作为 rails 的路径组件，完成各种代码加载]
 6. 执行 rails/commands/server，将其实例化
 7. [执行 lib/rack/server，将其实例化，完成 rack server 设置]
 8. 执行 config/application，完成应用设置
@@ -86,25 +86,30 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 12. 引用 rails/all，包括 rails 的所有组件 (active_record, active_controller, action_view, etc.)
 13. 执行 Rails.application.initialize!
 
-[文档](http://guides.ruby-china.org/initialization.html).
+见 [Rails Guide](http://guides.ruby-china.org/initialization.html). 整个启动过程和 Railtie 和 Rack 密不可分，因为 Railtie 是处理各组件自身载入流程的，它独立于应用；而通过 Rack 搭建的应用则通过 Railtie 定义的 hook 方法完成检测和启动。Hook，意思是抽象类中操作子类方法的一种方法，比如：
 
-## Rails 5 的新特性
-
-## 常用的业务类 Gem
-
-### Pundit
-
-### Devise
-
-### Omniauth
-
-### ActsAsTagglableOn
+```
+class Foo
+  def new
+    if test_ok # test_ok is a hook method
+      build_model
+    end
+  end
+end
+```
 
 ## Rails Engine
 
-引擎就是一个半独立/完全独立的 Application，通过路由挂在应用上。Rails::Application 直接继承自 Rails::Engine，例如 Devise 就是一个 Rails 引擎，另外基于 git 的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。实际应用中，比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。比如我曾经需要在一个商城中挂载一个福袋页面，我将逻辑实现在另一个完整的应用中，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持，通过 Rack 任务去检测环境，进行加载。第三种和 Devise 一样，需要和数据库/视图交互，提供自己的一套完整的业务逻辑。
+引擎就是一个半独立/完全独立的 Application。Rails::Application 直接继承自 Rails::Engine，例如 Devise 就是一个 Rails 引擎，另外基于 git 的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。实际应用中，比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。比如我曾经需要在一个商城中挂载一个福袋页面，我将逻辑实现在另一个完整的应用中，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持，通过 Rack 任务去检测环境，进行加载。第三种和 Devise 一样，需要和数据库/视图交互，提供自己的一套完整的业务逻辑。
 
 [创建 Rails 插件](http://guides.rubyonrails.org/plugins.html)。
+
+## Railties
+
+用于拓展 Rails 框架，构成核心组件。Rails 的主要组件 ActiveRecord，ActionController，ActionView，ActiveRecord，ActionMailer 都继承自 Railtie，各自负责自己的载入流程，而 Rails::Application 使用 Proxy 来和 Railtie 交互，让主要元件可以抽换，同时可以切入 Rails lifecycle，自定义启动流程。而 Rails::Engine 就是一个定义了 initializer 的 Railtie。
+
+1. [Railitie 和 Plugin 系统](https://ihower.tw/blog/archives/4873)
+2. [Intro to Railities](http://wangjohn.github.io/railties/rails/gsoc/2013/07/10/introduction-to-railties.html)
 
 ## HTTP 协议中 request 和 response 包括什么内容？
 
