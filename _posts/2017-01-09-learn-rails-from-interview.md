@@ -54,7 +54,31 @@ end
 run app
 ```
 
-中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要这些功能，但无需自主搭建。(Wikipedia)
+_*中间件*：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。典型的例子是日志记录，身份验证和其他以层级方式存在的组件。(Wikipedia)_
+
+在应用中，中间件的概念直观得多。我们来看 Grape 中的中间件：
+
+```ruby
+# Example config.ru
+
+require 'sinatra'
+require 'grape'
+
+class API < Grape::API
+  get :hello do
+    { hello: 'world' }
+  end
+end
+
+class Web < Sinatra::Base
+  get '/' do
+    'Hello world.'
+  end
+end
+
+use Rack::Session::Cookie # a middleware
+run Rack::Cascade.new [API, Web] # run grape alongside with sinatra
+```
 
 Rack 值得一提的还有 Handler，其标准库中提供了 WEBrick, Thin, CGI 等服务器，而其他支持 Rack 的服务器包括 [Puma](https://github.com/puma/puma/blob/master/lib/rack/handler/puma.rb) 等。按常理来说，Rack 只提供 HTTP 必要的标准化方法，也就是仅定义一个协议的 Ruby 标准库，不应该包括服务器 (handler)。可以看出 Rack 做了更多工作。
 
@@ -110,7 +134,7 @@ Devise 中的 @resource\_name 也是一个 hook，所以可以指定任意一个
 
 ## Railties
 
-用于拓展 Rails 框架，构成核心组件。Rails 的主要组件 ActiveRecord，ActionController，ActionView，ActiveRecord，ActionMailer 都继承自 Railtie，各自负责自己的载入流程，而 Rails::Application 使用 Proxy 来和 Railtie 交互，让主要元件可以抽换，同时可以切入 Rails lifecycle，自定义启动流程。而 Rails::Engine 就是一个定义了 initializer 的 Railtie。
+Railtie 用于拓展 Rails 框架，构成核心组件。Rails 的主要组件 ActiveRecord，ActionController，ActionView，ActiveRecord，ActionMailer 都继承自 Railtie，各自负责自己的载入流程，而 Rails::Application 使用 Proxy 来和 Railtie 交互，让主要元件可以抽换，同时可以切入 Rails lifecycle，自定义启动流程。而 Rails::Engine 就是一个定义了 initializer 的 Railtie。
 
 在需要检测启动时的条件 (使用 hook)、Rake 任务的时候，就需要 Railtie.
 
