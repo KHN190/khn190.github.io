@@ -56,6 +56,8 @@ run app
 
 中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要这些功能，但无需自主搭建。(Wikipedia)
 
+Rack 值得一提的还有 Handler，其标准库中提供了 WEBrick, Thin, CGI 等服务器，而其他支持 Rack 的服务器包括 [Puma](https://github.com/puma/puma/blob/master/lib/rack/handler/puma.rb) 等。按常理来说，Rack 只提供 HTTP 必要的标准化方法，也就是仅定义一个协议的 Ruby 标准库，不应该包括服务器 (handler)。可以看出 Rack 做了更多工作。
+
 1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
 2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
 3. [Rails on Rack](http://guides.rubyonrails.org/rails_on_rack.html)
