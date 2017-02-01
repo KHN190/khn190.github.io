@@ -96,7 +96,7 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails 启动的顺序
 
-简单来说先检查依赖，加载代码，再启动 Rack，最终按组件加载后，启动应用。以 rails s 为例：
+简单来说先检查依赖，加载代码，再启动 Rack，最终按组件加载后，启动应用。这里有两个层级，第一是加载 Rack 时各中间件按顺序加载，第二是在启动 Rails 时，根据 Railtie 定义的加载顺序加载 Rails 组件。以 rails s 为例：
 
 1. 执行 bin/rails
 2. 引用 config/boot，检查 Gem 依赖
