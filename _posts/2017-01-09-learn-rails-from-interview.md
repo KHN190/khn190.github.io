@@ -35,9 +35,9 @@ transaction 中的 rollback 和 commit 方法和上述内容没有本质区别�
 
 ## Rack 的作用
 
-Rack 实际上就是 HTTP 协议的一个 Wrapper，好比 GitHub 的接口有 Omniauth-Github，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。显而易见地，在 Rack 源代码中对 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 的处理就能看出 Rack 的角色。和 Omniauth 这类 API wrapper 的区别是，HTTP 协议是传输层的，而 API 是应用层的。传统的负载均衡器是在传输层，比如 Nginx 服务器，而 GitHub 的负载均衡是分为两层其中一层[用 Rails 实现的](https://github.com/blog/530-how-we-made-github-fast)。去年底他们[更新了这个项目](http://githubengineering.com/introducing-glb/)。
+Rack 官方文档说，`provides a minimal interface between webservers that support Ruby and Ruby frameworks`，它实际上就是 HTTP 协议的一个标准库。针对 GitHub 的 API 协议有 Omniauth-Github，在 Python 中有 Tornado 服务器，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。例如 Rack 源代码中 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 就定义了 Rack 对 HTTP 响应的处理。和 Omniauth 这类 API client 的区别是，HTTP 协议是传输层的，而 API 是应用层的。且 Omniauth 原则上只提供客户端，而 Rack 同时定义了服务端。
 
-Rack 另外还提供了 Middleware Chain，用以搭建 Rack App，比如使用 Warden 作为身份验证的中间件：
+Rack 另外还提供了 Middleware Chain，用以搭建 Rack App，比如自定义使用 Warden 作为身份验证的中间件：
 
 ```ruby
 failure_app = Proc.new { |env| ['401', {'Content-Type' => 'text/html'}, ["UNAUTHORIZED"]] }
@@ -54,7 +54,7 @@ end
 run app
 ```
 
-中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要这些功能，但无需自主搭建。
+中间件：指一种用于帮助，但并没有直接参与执行某一程序任务的组件/库。非常典型的例子是日志记录，身份验证和其他以层级方式存在的组件。通常大多数程序都需要这些功能，但无需自主搭建。(Wikipedia)
 
 1. [RailsCasts: The Rails Initialization Process](http://railscasts-china.com/episodes/the-rails-initialization-process-by-kenshin54)
 2. [RubyChina: Why we need Rack?](https://ruby-china.org/topics/21517)
@@ -70,7 +70,7 @@ scope 实现没看懂。定义的方法等同于 def，但通过 `scope :foo, :b
 
 ## Rails 启动的顺序
 
-简单来说先检查依赖，加载代码，再启动 Rack，最终按组件一一加载后，启动应用。以 rails s 为例：
+简单来说先检查依赖，加载代码，再启动 Rack，最终按组件加载后，启动应用。以 rails s 为例：
 
 1. 执行 bin/rails
 2. 引用 config/boot，检查 Gem 依赖
@@ -98,9 +98,11 @@ class Foo
 end
 ```
 
+Devise 中的 @resource\_name 也是一个 hook，所以可以指定任意一个资源类型作为 User 模型。
+
 ## Rails Engine
 
-引擎就是一个半独立/完全独立的 Application。Rails::Application 直接继承自 Rails::Engine，例如 Devise 就是一个 Rails 引擎，另外基于 git 的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。实际应用中，比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。比如我曾经需要在一个商城中挂载一个福袋页面，我将逻辑实现在另一个完整的应用中，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持，通过 Rack 任务去检测环境，进行加载。第三种和 Devise 一样，需要和数据库/视图交互，提供自己的一套完整的业务逻辑。
+引擎就是一个半独立/完全独立的 Application。Rails::Application 直接继承自 Rails::Engine，例如 Devise 就是一个 Rails 引擎，另外基于 git 的维基 [Gollum-Wiki](https://github.com/gollum/gollum) 也是一个引擎。实际应用中，比如在线商城某天有一个临时活动，因为不想把它写入永久性的工程，所以就实现成一个引擎，暂时挂载在 routes 上。一段时间后，活动结束，这个引擎又被取下来（改动最少的情况只有 routes.rb 中的一行）。比如我曾经需要在一个商城中挂载一个福袋页面，我将逻辑实现在另一个完整的应用中，通过 Nginx 的端口转发和 Rails 路由设置实现分流。另一种应用场景是，根据不同的生产环境，按需加载不同的插件。比如大型的 SaaS 平台，要适应不同的业务逻辑，不可能用同样的代码去应对所有环境，要提供灵活、精准的服务，就需要 Rails 引擎的技术支持，通过 Rack 任务去检测环境，进行加载。第三种和 Devise 一样，需要和数据库/视图交互，提供自己的一套完整的业务逻辑。Engine 拥有和宿主相独立的中间件。
 
 [创建 Rails 插件](http://guides.rubyonrails.org/plugins.html)。
 
@@ -108,8 +110,12 @@ end
 
 用于拓展 Rails 框架，构成核心组件。Rails 的主要组件 ActiveRecord，ActionController，ActionView，ActiveRecord，ActionMailer 都继承自 Railtie，各自负责自己的载入流程，而 Rails::Application 使用 Proxy 来和 Railtie 交互，让主要元件可以抽换，同时可以切入 Rails lifecycle，自定义启动流程。而 Rails::Engine 就是一个定义了 initializer 的 Railtie。
 
+在需要检测启动时的条件 (使用 hook)、Rake 任务的时候，就需要 Railtie.
+
 1. [Railitie 和 Plugin 系统](https://ihower.tw/blog/archives/4873)
 2. [Intro to Railities](http://wangjohn.github.io/railties/rails/gsoc/2013/07/10/introduction-to-railties.html)
+3. [Source code](https://github.com/rails/rails/blob/master/railties/lib/rails/railtie.rb)
+4. [Extending Rails 3 with Railties](https://blog.engineyard.com/2010/extending-rails-3-with-railties)
 
 ## HTTP 协议中 request 和 response 包括什么内容？
 
