@@ -35,17 +35,21 @@ transaction 中的 rollback 和 commit 方法和上述内容没有本质区别�
 
 ## Rack 的作用
 
-Rack 官方文档说，`provides a minimal interface between webservers that support Ruby and Ruby frameworks`，它实际上就是 HTTP 协议的一个标准库。针对 GitHub 的 API 协议有 Omniauth-Github，在 Python 中有 Tornado 服务器，Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。例如 Rack 源代码中 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 就定义了 Rack 对 HTTP 响应的处理。和 Omniauth 这类 API client 的区别是，HTTP 协议是传输层的，而 API 是应用层的。且 Omniauth 原则上只提供客户端，而 Rack 同时定义了服务端。
+Rack 官方文档说，`provides a minimal interface between webservers that support Ruby and Ruby frameworks`，它实际上就是 HTTP 协议的一个标准库。
 
-Rack 另外还提供了 Middleware Chain，用以搭建 Rack App，比如自定义使用 Warden 作为身份验证的中间件：
+针对 GitHub 有 Omniauth-Github 根据其 API 文档的定义提供客户端的标准化操作。在 Python 中则有 Tornado 服务器。Rack 同样为 HTTP 协议提供了解析头部、数据的 Ruby 标准方法。例如 Rack 源代码中 [Request](https://github.com/rack/rack/blob/master/lib/rack/request.rb) 就对 HTTP 响应的处理。
+
+和 Omniauth 的区别是，HTTP 协议是在传输层，而 API 是在应用层。也就是说，Github API 运行依赖于 HTTP 协议，其存在于传输层 HTTP 协议负载的数据中。且 Omniauth 原则上只提供客户端行为，而 Rack 同时还定义了服务端行为。Rack 和 Tornado 的区别才更小，Tornado 也提供了 HTTP 协议的标准写法，我们可以直接使用 Tornado 定义自己的 Handler，处理事件。而 Rack 一般还不直接让我们在其之上写 Handler，而是让开发者在更成熟的 Handler 框架上 (如，Sinatra，Grape，Rails)做开发。
+
+Rack 另外还提供了非常方便的 Middleware Chain，用以搭建 Rack App，这些中间件是可以快速抽换的。比如自定义使用 Warden 作为身份验证的中间件：
 
 ```ruby
 failure_app = Proc.new { |env| ['401', {'Content-Type' => 'text/html'}, ["UNAUTHORIZED"]] }
 
 app = Rack::Builder.new do
-  use Rack::Session::Cookie, secret: "MY_SECRET"
+  use Rack::Session::Cookie, secret: "MY_SECRET" # use a middleware
 
-  use Warden::Manager do |manager|
+  use Warden::Manager do |manager| # another middleware
     manager.default_strategies :password, :basic
     manager.failure_app = failure_app
   end
