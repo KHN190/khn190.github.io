@@ -62,6 +62,8 @@ Dirichlet 过程是一个贝叶斯统计过程。先了解几个概念。
 
 ……回到最初的问题，怎么抽取和会话相关的百度问答问题？有了 LDA 模型，很容易想到通过主题聚类，选出所有会话中 k 个主题下排名前 30 的词语，通过已有的近义词数据库抽出相关的词语，再通过这些词语去抽取百度问答。
 
+实际上还使用了预处理，把所有无意义的停用词去掉（比如 emoji 表情符号，“你好”，“客服”，“在吗”等等），去掉所有长度为1的词，去掉所有长度大于5的词，预处理应该根据自身需要去定制。
+
 LDA模型是在 Spark 上跑的，例如这个程序：[LDA wikipedia example (gist)](https://gist.github.com/feynmanliang/3b6555758a27adcb527d)。这个脚本在几百万维基百科上得到100个主题，具其 [博客](https://databricks.com/blog/2015/09/22/large-scale-topic-modeling-improvements-to-lda-on-apache-spark.html) 称效果相当不错。
 
 另外一篇讲义提到了先验概率对 LDA 模型的重要影响，还讲到一些训练中的实用方法：[wallach lecture](http://people.cs.umass.edu/~wallach/talks/priors.pdf) 例如，如何选取合适的主题数目，先验概率的影响，Dirichlet 分布中的两个α和β分别意味什么？强烈推荐。
