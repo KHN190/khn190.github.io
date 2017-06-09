@@ -66,6 +66,6 @@ Dirichlet 过程是一个贝叶斯统计过程。先了解几个概念。
 
 LDA模型是在 Spark 上跑的，例如这个程序：[LDA wikipedia example (gist)](https://gist.github.com/feynmanliang/3b6555758a27adcb527d)。这个脚本在几百万维基百科上得到100个主题，具其 [博客](https://databricks.com/blog/2015/09/22/large-scale-topic-modeling-improvements-to-lda-on-apache-spark.html) 称效果相当不错。
 
-另外一篇讲义提到了先验概率对 LDA 模型的重要影响，还讲到一些训练中的实用方法：[wallach lecture](http://people.cs.umass.edu/~wallach/talks/priors.pdf) 例如，如何选取合适的主题数目，先验概率的影响，Dirichlet 分布中的两个α和β分别意味什么？强烈推荐。
+另外一篇讲义提到了先验概率对 LDA 模型的重要影响，还讲到一些训练中的实用方法：[wallach lecture](http://people.cs.umass.edu/~wallach/talks/priors.pdf) 例如，如何选取合适的主题数目，先验概率有何影响，Dirichlet 分布中的两个α和β分别意味什么？
 
 我得到的结果也不错。
