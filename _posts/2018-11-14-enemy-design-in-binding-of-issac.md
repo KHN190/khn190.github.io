@@ -18,7 +18,7 @@ When you carefully look at the enemies in Isaac Rebirth, they behave pretty simp
 
 ## 1. Pathfinding
 
-This was the first thing I considered in my own game. To make enemies smart, they should be able to target their component, or a companion in a clean way. Shortest path can be achieved using A* path finding algorithm. I tried.
+This was the first thing I considered in my own game. To make enemies smart, they should be able to target their opponent, or companion in a clean way. A shortest path can be achieved using A* path finding algorithm. I tried.
 
 The result doesn't feel so good - enemies are either too aggressive or kind of too straightforward, or even both. When they are in an empty space, they'll approach the player in a direct line - too straight. That's one reason that Isaac Rebirth - or Hollow Knight - did not use a shortest pathfinding.
 
