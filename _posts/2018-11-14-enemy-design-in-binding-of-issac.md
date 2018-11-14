@@ -28,7 +28,7 @@ Enemies are able to find the player but they do not approach in a shortest path,
 
 <img src="/images/isaac/2.jpg" alt="" width="640px"/>
 
-**Conclusion**. Give players time to observe, learn and attack. A shortest path is not necessary, and sometimes harmful.
+**Conclusion**. The key is to give players time to observe, learn and attack. Thus a shortest path is not necessary, and sometimes harmful.
 
 ## 2. Attack
 
@@ -41,9 +41,9 @@ Several attacks exist in Isaac Rebirth:
 5. [jump](https://bindingofisaacrebirth.gamepedia.com/Gurdy), found with bosses
 6. [spawn monsters / poop](https://bindingofisaacrebirth.gamepedia.com/The_Duke_of_Flies), found with bosses
 
-As we can see, there are not many actions that the monsters in Isaac Rebirth capable of. Especially ordinary enemies are pretty dumb, regarding some actions can only be found in bosses. Poisonous trail / laser can be found in deeper basements only, too, and it doesn't change the fact that attack patterns are quite too similar. 
+As we can see, there are not many actions that the monsters in Isaac Rebirth capable of. Especially ordinary enemies are pretty dumb, regarding some actions can only be found with bosses. Poisonous trail / laser can be found in deeper basements only, too, and it doesn't change the fact that attack patterns are quite too similar. 
 
-Attacks are based on pathfinding behaviours so generally there're 2 distinguishable types of enemies: no bullet / with bullet. Otherwise they are only different on movement pattern & art sprite. But this also strengthens the behaviour that enemies tend to wander around, leaving you some time to observe & learn.
+Attacks are based on pathfinding behaviours so generally there're 2 distinguishable types of enemies: no bullet / with bullet. Otherwise they are only different on movement pattern & art sprite. But this also simplifies the behaviours to be observed & learned. Hollow Knight is much more difficult to play since enemies behave in very various ways.
 
 **Conclusion**. I strongly believe designers of Isaac Rebirth didn't put their full energy in designing enemy behaviours. This makes the game easier to play, but on the other hand it reduced "depth" of gameplay strategy. However, adding abundant of items to this game makes it "wide" - the depth of strategy comes when different items collected. I realised Isaac Rebirth is really not good at enemy design when I thought about the next point. (But in Hollow Knight, enemy design is much better.)
 
