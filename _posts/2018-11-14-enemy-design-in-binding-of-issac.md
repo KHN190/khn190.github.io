@@ -55,9 +55,11 @@ In roguelike games enemies should be able to reinforce each other than fighting 
 
 <img src="/images/isaac/3.jpg" alt="" width="640px"/>
 
+But if you look more closely, Peep's eyeballs move in a programmed pattern. They are not aware of their opponents.
+
 Ideally a cooperation happens when two different enemies are aware of each other and thier abilities may crash together causing "[Emergency](https://en.wikipedia.org/wiki/Emergence)". In this case, 1 + 1 is greater than 2, two enemies behave more complex than a single one. This can be achieved using [Swarm](https://en.wikipedia.org/wiki/Swarm_intelligence), or a centralized AI.
 
-However, in Isaac Rebirth the enemies are usually not aware of each other. There's no centralized coordinator, nor swarm of ants. Peep's eyeballs also move in a pre-program pattern, I didn't notice their awareness of each other. I believe adding enemy cooperation will make this great game even more fun.
+However, in Isaac Rebirth the enemies are usually not aware of each other. There's no centralized coordinator, nor swarm of ants. I believe adding enemy cooperation will make this great game even more fun.
 
 **Conclusion**. Cooperation needs awareness of a companion. Enemies that are able to cooperate increase depth of gameplay. While cooperation is not a common design in action games.
 
