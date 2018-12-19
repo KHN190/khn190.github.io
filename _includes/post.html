@@ -20,4 +20,20 @@
       <span id="pub-date">Published on {{ page.date | date_to_string }}</span>
     </p>
   </div>
+
+  <div class="comments" id="comments">
+    <div id="gitmentContainer" style="margin-right: 10%;"></div>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        owner: 'KHN190',
+        repo: 'khn190.github.io',
+        oauth: {
+          client_id: '3bba334823b589fc197f',
+          client_secret: '2d7bfca4d513238b25c6e2387be6bc9c190f3c3d',
+        },
+      });
+      gitment.render('gitmentContainer')
+    </script>
+  </div>
+
 </div>
