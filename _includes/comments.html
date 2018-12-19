@@ -1,0 +1,25 @@
+<div class="comments" id="comments">
+
+  <div id="gitmentContainer" style="margin-bottom: -19px;"></div>
+  <style>
+    .gitment-container a {
+      border: none;
+    }
+    .comments {
+      margin: 60px 0 0;
+    }
+  </style>
+  <script type="text/javascript">
+    var gitment = new Gitment({
+      id: 'gitment-introduction',
+      owner: 'KHN190',
+      repo: 'khn190.github.io',
+      oauth: {
+        client_id: '3bba334823b589fc197f',
+        client_secret: '2d7bfca4d513238b25c6e2387be6bc9c190f3c3d',
+      },
+    })
+    gitment.render('gitmentContainer')
+  </script>
+
+</div>
