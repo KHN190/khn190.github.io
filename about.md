@@ -7,8 +7,4 @@ permalink: /about/
 categories: about
 ---
 
-A software engineer. A game designer. A rock climber.
-
-* [Itch.io](https://knh190.itch.io)
-* [Portfolio](http://badconductor.com)
-* [Rock climber, ability V3-V4](https://en.wikipedia.org/wiki/Bouldering)
+Read my [portfolio](http://badconductor.com).
