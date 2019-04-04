@@ -21,7 +21,7 @@ Tile is only a reference to some attributes. Tilemap reuses the attributes inste
 
 This is important because if you want to customize your tiles - this should be put into Unity's docs - in most cases, you **do not call them directly** on `CustomizedTile : Tile` like MonoBehaviour classes. You need to implement the interfaces which is used by Tilemap, and call Tilemap's methods.
 
-So, there are two important interfaces: **[GetTileData][3]** and **[RefreshTile][4]**.
+So, there are two important interfaces: [GetTileData][3] and [RefreshTile][4].
 
 As mentioned in docs, `GetTileData` sets all necessary data for rendering a tile. But the render process is also controlled by `RefreshTile`. It's a bit weird that `TileBase` doesn't implement them by itself, so you have to implement them in your own customized Tile. It's also a bit weird they are not `interface` - like Unity UI's callbacks.
 
