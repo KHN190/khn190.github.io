@@ -6,12 +6,14 @@ date:   2019-04-06 00:00:00 +0800
 categories: game-design
 ---
 
+I had some problems using Unity's Tilemap so I think this tutorial should help the community to get familiar with the tool. I needed to change a sprite for tiles during runtime, and I didn't want to create a new tile, so I stuck with the following second solution with a customized tile.
+
 There are 2 ways to **change a tile's sprite** during runtime:
 
 1. Change tiles in a tilemap to a new tile ([SetTiles][1] or [SwapTile][2])
 2. Change tile's sprite
 
-Both solution requires **re-rendering** of tiles. 
+Both solutions require **re-rendering** of tiles.
 
 This is why simply setting `tile.sprite` to a new sprite is not enough. I'll explain it later.
 
@@ -72,7 +74,9 @@ foreach (Vector3Int pos in bounds.allPositionsWithin)
 }
 ``` 
 
-Note the first two options (SetTiles and SwapTile) by Unity automatically calls refresh so you don't have to manually do this. I also provide the complete code on [gist][5].
+Note the first two options (`SetTiles` and `SwapTile`) by Unity automatically calls refresh so you don't have to manually do this. 
+
+I also provide the complete code on [gist][5].
 
   [1]: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap.SetTiles.html
   [2]: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap.SwapTile.html
