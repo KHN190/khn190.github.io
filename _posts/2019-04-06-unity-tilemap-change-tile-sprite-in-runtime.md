@@ -23,7 +23,7 @@ This is important because if you want to customize your tiles - this should be p
 
 So, there are two important interfaces: [GetTileData][3] and [RefreshTile][4].
 
-As mentioned in docs, `GetTileData` sets all necessary data for rendering a tile. But the render process is also controlled by `RefreshTile`. It's a bit weird that `TileBase` doesn't implement them by itself, so you have to implement them in your own customized Tile. It's also a bit weird they are not `interface` - like Unity UI's callbacks.
+As mentioned in docs, `GetTileData` sets all necessary data for rendering a tile. But the render process is also controlled by `RefreshTile`. It's a bit weird that `TileBase` doesn't implement them by itself, so you have to implement them in your own customized Tile. It's also a bit weird they are not interface - like Unity UI's callbacks.
 
 But here finally comes the solution:
 
@@ -72,9 +72,10 @@ foreach (Vector3Int pos in bounds.allPositionsWithin)
 }
 ``` 
 
-Note the first two options (SetTiles and SwapTile) by Unity automatically calls refresh so you don't have to manually do this.
+Note the first two options (SetTiles and SwapTile) by Unity automatically calls refresh so you don't have to manually do this. I also provide the complete code on [gist][5].
 
   [1]: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap.SetTiles.html
   [2]: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap.SwapTile.html
   [3]: https://docs.unity3d.com/ScriptReference/Tilemaps.TileBase.GetTileData.html
   [4]: https://docs.unity3d.com/ScriptReference/Tilemaps.TileBase.RefreshTile.html
+  [5]: https://gist.github.com/KHN190/0d41c6a54a757d82f3a2814f5ff9d2a4
