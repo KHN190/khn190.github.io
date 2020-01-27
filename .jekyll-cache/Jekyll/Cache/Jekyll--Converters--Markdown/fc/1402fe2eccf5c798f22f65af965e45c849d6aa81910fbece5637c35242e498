@@ -1,0 +1,20 @@
+I"H<h2 id="lets-create-a-marble-shader-in-unity">Let’s Create a Marble Shader in Unity!</h2>
+
+<p>Back sometime, when I wandered in the cyber space I found a post about <a href="https://80.lv/articles/building-intricate-ice-shaders/">creating intricate ice in Unity</a>, and I immediately fell in love with the visual patterns. There is an incredibly beautiful image for you to have a feel:</p>
+
+<p><img src="./assets/img/ice_shader.png" alt="" /></p>
+
+<p>However when I bought the asset to see how it works, I was slightly unsatisfied because most of the patterns are baked in textures. The ices are not actually usable for arbitrary objects except for plane. And they are not transparent. I clearly want a toy with similar breath but has the following traits:</p>
+
+<ol>
+  <li>it can reflect lights</li>
+  <li>it can refract other objects throught it</li>
+  <li>it has to be transparent</li>
+</ol>
+
+<p>And after some research, I had this as my result - which is also the same you will have after the tutorial:</p>
+
+<p><img src="./assets/img/marble.gif" alt="" /></p>
+
+<p><a href="./">back</a></p>
+:ET

@@ -1,0 +1,12 @@
+I"á<h2 id="lets-create-a-marble-shader-in-unity">Letâ€™s Create a Marble shader in Unity!</h2>
+
+<p>Back sometime, when I wandered in the cyber space I found a post about <a href="https://80.lv/articles/building-intricate-ice-shaders/">creating intricate ice in Unity</a>, and I immediately fell in love with the visual patterns.</p>
+
+<ol>
+  <li>it can reflect lights</li>
+  <li>it can refract other objects</li>
+  <li>it has to be transparent</li>
+</ol>
+
+<p><a href="./">back</a></p>
+:ET
