@@ -1,7 +1,14 @@
-title: knh190
-logo: /assets/img/logo.png
-description: I am Lingxiao Yu. Now I live in Shanghai. I am looking for general jobs & commissions. You can send me an email to knh190@hotmail.com or text me on Twitter.
-show_downloads: false
-google_analytics:
-theme: jekyll-theme-minimal
-author: knh190
+# Site settings
+title: LING'XIAO | Programmer, Poet, Artist
+email: knh190@hotmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  I compose poetry and programs in natural & artificial languages,
+  and ocassionally draw digital arts.
+baseurl: ""
+url: "https://khn190.github.io"
+twitter_username: ly5081
+github_username:  KHN190
+
+# Build settings
+markdown: kramdown
+permalink: pretty
