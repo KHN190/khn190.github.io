@@ -6,7 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
   and ocassionally draw digital arts.
 baseurl: ""
 url: "https://khn190.github.io"
-twitter_username: ly5081
+twitter_username: 
 github_username:  KHN190
 
 # Build settings
