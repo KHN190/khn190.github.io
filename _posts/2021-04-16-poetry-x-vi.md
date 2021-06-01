@@ -2,6 +2,7 @@
 layout: post
 title:  "字典 | A Dictionary"
 date:   2021-04-16 00:00:00
+categories: arts
 preview: /assets/img/covers/04.png
 ---
 

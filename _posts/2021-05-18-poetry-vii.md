@@ -2,6 +2,7 @@
 layout: post
 title:  "硬币 | A Token"
 date:   2021-05-18 00:00:00
+categories: arts
 preview: /assets/img/covers/15.png
 ---
 

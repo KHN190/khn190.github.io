@@ -2,6 +2,7 @@
 layout: post
 title:  "杂货铺 ｜ The Grocery Store"
 date:   2021-05-09 00:00:00
+categories: arts
 preview: /assets/img/covers/13.png
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title:  "回答 | Answer"
 date:   2021-04-25 00:00:00
+categories: arts
 preview: /assets/img/covers/10.png
 ---
 

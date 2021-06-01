@@ -2,6 +2,7 @@
 layout: post
 title:  "时间 | Time"
 date:   2021-05-28 00:00:00
+categories: arts
 preview: /assets/img/covers/16.png
 ---
 

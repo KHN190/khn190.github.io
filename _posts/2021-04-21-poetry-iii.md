@@ -2,6 +2,7 @@
 layout: post
 title:  "十个太阳 | The Ten Solars"
 date:   2021-04-21 00:00:00
+categories: arts
 preview: /assets/img/covers/05.png
 ---
 

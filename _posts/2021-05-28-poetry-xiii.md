@@ -2,6 +2,7 @@
 layout: post
 title:  "醒着 | Awake"
 date:   2021-05-28 00:00:00
+categories: arts
 preview: /assets/img/covers/17.png
 ---
 

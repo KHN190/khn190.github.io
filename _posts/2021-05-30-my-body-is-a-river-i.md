@@ -2,6 +2,7 @@
 layout: post
 title:  "My Body is a River I"
 date:   2021-05-30 00:00:00
+categories: arts
 preview: /assets/img/mbiar/01_sm.png
 ---
 

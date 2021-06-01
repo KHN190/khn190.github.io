@@ -2,6 +2,7 @@
 layout: post
 title:  "礼物 | A Present"
 date:   2021-05-11 00:00:00
+categories: arts
 preview: /assets/img/covers/14.png
 ---
 
