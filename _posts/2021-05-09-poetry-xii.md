@@ -10,7 +10,7 @@ preview: /assets/img/covers/13.png
 
 In your cinnamon dream,
 
-you politely asked to wait until you return.
+you politely asked the shop to wait until you return.
 
 The shopkeeper waited,
 
