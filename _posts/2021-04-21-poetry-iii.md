@@ -28,6 +28,26 @@ preview: /assets/img/covers/05.png
 
 ---
 
+The ten crimson solars,
+
+Shading on me who obsessed with blackness.
+
+I'll devote my whole cleaved life
+
+To the untangling spring.
+
+<br>
+
+The ten crimson solars,
+
+Singing high on bare boulders.
+
+Your image fluttered in my heart
+
+Like a purple lightening.
+
+---
+
 Medium: Text.
 
 Date: Apr, 2021. NYC
