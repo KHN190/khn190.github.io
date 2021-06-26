@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "十个太阳 | The Ten Solars"
+title:  "十个太阳 | The Ten Crimsons"
 date:   2021-04-21 00:00:00
 categories: arts
 preview: /assets/img/covers/05.png
@@ -28,7 +28,7 @@ preview: /assets/img/covers/05.png
 
 ---
 
-The ten crimson solars,
+The ten crimsons,
 
 Shading on me who obsessed with blackness.
 
@@ -38,7 +38,7 @@ To the untangling spring.
 
 <br>
 
-The ten crimson solars,
+The ten crimsons,
 
 Singing high on bare boulders.
 
