@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "醒着 | Awake"
+title:  "醒著 | Awake"
 date:   2021-05-28 00:00:00
 categories: arts
 preview: /assets/img/covers/17.png
@@ -10,11 +10,11 @@ preview: /assets/img/covers/17.png
 
 有一天，
 
-我会不需要睡眠，
+我會不需要睡眠，
 
-而恒常地醒着。
+而恆常地醒著。
 
-为需要的人守着漫漫长夜。
+為需要的人守著漫漫長夜。
 
 ---
 

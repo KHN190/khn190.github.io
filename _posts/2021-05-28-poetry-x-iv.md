@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "时间 | Time"
+title:  "時間 | Time"
 date:   2021-05-28 00:00:00
 categories: arts
 preview: /assets/img/covers/16.png
@@ -8,13 +8,13 @@ preview: /assets/img/covers/16.png
 
 <br>
 
-时间打败多少赫赫大名。
+時間打敗多少赫赫大名。
 
-我还没有忘记，
+我還沒有忘記，
 
-我还活着。
+我還活著。
 
-我还拥有时间。
+我還擁有時間。
 
 ---
 

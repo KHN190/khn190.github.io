@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "十个太阳 | The Ten Crimsons"
+title:  "十個太陽 | The Ten Crimsons"
 date:   2021-04-21 00:00:00
 categories: arts
 preview: /assets/img/covers/05.png
@@ -8,23 +8,23 @@ preview: /assets/img/covers/05.png
 
 <br>
 
-绯红的十个太阳，
+緋紅的十個太陽，
 
-照亮倾心于黑色的我。
+照亮傾心於黑色的我。
 
-我把劈开的生命，
+我把劈開的生命，
 
-都献给了正在舒展的春天。
+都獻給了正在舒展的春天。
 
 <br>
 
-绯红的十个太阳，
+緋紅的十個太陽，
 
-在高高的裸岩上旋转着歌唱。
+在高高的裸岩上旋轉著歌唱。
 
-心中闪过的你，
+心中閃過的你，
 
-仿佛紫色的闪电。
+彷彿紫色的閃電。
 
 ---
 
