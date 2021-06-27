@@ -31,5 +31,20 @@ body {
 	font-size: 1.6em; // Currently ems cause chrome bug misinterpreting rems on body element
 	font-weight: 300;
 	letter-spacing: .01em;
-	line-height: 1.6;
+	line-height: 1.8;
+}
+
+.post-content {
+	line-height: 1.2em;
+}
+
+.post span, .comment {
+	color: #939da4;
+	font-size: 0.8em;
+	line-height: 0.4;
+}
+
+.nav-item, 
+.site-footer .footer-heading {
+	font-family: 'Noto Sans', 'Roboto', 'Helvetica Neue';
 }

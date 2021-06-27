@@ -12,6 +12,6 @@ I'm on [instagram](https://www.instagram.com/knh190/).
 
 ---
 
-\* *All poetry posted on the site are licensed under CC-BY 4.0 Non-Commercial.*
-
-*Rights for images are reserved.*
+<span class="post-comment">
+\* *All poetry posted on the site are licensed under CC-BY 4.0 Non-Commercial. Rights for images are reserved.*
+</span>
