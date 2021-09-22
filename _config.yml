@@ -6,8 +6,9 @@ description: > # this means to ignore newlines until "baseurl:"
   ocassionally wood carvings and digital illustrations.
 baseurl: ""
 url: "https://khn190.github.io"
-twitter_username: 
-github_username:  KHN190
+github_username: KHN190
+instagram_username: knh190
+# twitter_username: knh190
 
 # Build settings
 markdown: kramdown
