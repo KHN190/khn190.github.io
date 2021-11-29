@@ -17,11 +17,15 @@ permalink: /manifesto/
 	偏執，但絕不重複。
 
 	V. Be generically compassionate for every specific person.
-	Even if some hurt you in the past. 
-	對每個具體的人有普遍的同情。即使有的傷害過你。
+	Even if some betrayed you in the past. 
+	對每個具體的人有普遍的同情。即使有的背叛過你。
 
 	VI. Admit your multiple facets.
 	接受你的多個面向。
 
-	VII. Keep writing. Keep physical training. Be prepared.
+	VII. No shortcuts.
+	不取捷徑。
+
+	VIII. Keep writing. Keep physical training. Be prepared.
 	堅持寫作。堅持鍛鍊。準備一切。
+
