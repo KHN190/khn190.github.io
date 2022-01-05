@@ -19,3 +19,27 @@ permalink: /manifesto/
 
 	V. Living is to understand today.
 	活著在于理解今天。
+
+---
+
+## Poetry Manifesto
+
+	A poem is a game.
+	詩也是一個遊戲。
+
+	A poem has rules: poetry must be read following rules.
+	詩蘊含規則：詩歌的閱讀必須按照規則。
+
+	A poem has puzzles.
+	詩蘊含謎題。
+
+	A poem has structures, both spatial and rhythmic.
+	詩蘊含結構，空間的和韻律的。
+
+	A poem has aesthetics.
+	詩蘊含美學。
+
+	A poem has interactions.
+	詩蘊含交互。
+
+	Drafted in June, 2020
