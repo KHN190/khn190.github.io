@@ -1,3 +1,5 @@
+@use "Color";
+
 /*!
  * Milligram-scss v1.3.0
  * https://milligram.github.io
@@ -11,7 +13,7 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 
 code {
-	background: $color-tertiary;
+	background: Color.$color-tertiary;
 	border-radius: .4rem;
 	font-size: 86%;
 	margin: 0 .2rem;
@@ -20,8 +22,8 @@ code {
 }
 
 pre {
-	background: $color-tertiary;
-	border-left: .3rem solid $color-primary;
+	background: Color.$color-tertiary;
+	border-left: .3rem solid Color.$color-primary;
 	overflow-y: hidden;
 
 	& > code {

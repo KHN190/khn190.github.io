@@ -3,9 +3,11 @@
 ---
 @charset "utf-8";
 
+@use "sass:color";
+
 $grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-light: color.scale($grey-color, $lightness: 40%);
+$grey-color-dark:  color.scale($grey-color, $lightness: -25%);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
@@ -18,14 +20,11 @@ $grey-color-dark:  darken($grey-color, 25%);
 html {
   /* 系统 SF 字体优先，回落到常见英文、再到中文 */
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif,
     "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC";
   /* 全局基础字号 & 行高 */
-  font-size: 18px;
+  font-size: 10px;
   line-height: 1.6;
-  /* 取消东亚全角替换 */
-  font-variant-east-asian: normal;
-  font-feature-settings: "fwid" 0;
 }
 
 body {
@@ -39,14 +38,13 @@ body {
 
 /* 可选：更大标题和小标题 */
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.3;
-  margin-top: 1.5em;
+  line-height: 1.2;
   margin-bottom: 0.5em;
 }
 
 /* 链接颜色 & 下划线样式 */
 a {
-  color: #0066cc;
+  color: $grey-color;
   text-decoration: none;
   border-bottom: 1px solid rgba(0,102,204,0.3);
   transition: border-color .2s;
@@ -59,4 +57,26 @@ a:hover {
 p {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+/* —— 自定义无序列表符号 —— */
+ul {
+  list-style: none;       // 先去掉默认圆点
+}
+
+.post-content ul li {
+  position: relative;     // 为 before 伪元素定位做准备
+  padding-left: 0.7em;
+}
+
+.post-content ul li::before {
+  content: '⧫';
+  position: absolute;
+  left: 0;                // 和 padding-left 保持对齐
+  font-size: 1.2em;
+  // top: 0.1em;
+}
+
+.post-content strong {
+  color: $grey-color;
 }

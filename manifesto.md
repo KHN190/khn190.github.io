@@ -4,14 +4,14 @@ title: Manifesto
 permalink: /manifesto/
 ---
 
-	I. Be violent, but only to yourself.
+	I. Violent, but only to myself.
 	暴力，但只針對自己。
 
-	II. Be compulsory, but non-repeating. 
+	II. Compulsory, but non-repeating. 
 	偏執，但絕不重複。
 
-	III. Be generically compassionate for every specific person.
-	Even if some betrayed you in the past. 
+	III. Compassionate for every specific person.
+	Even for those who betrayed me in the past. 
 	對每個具體的人有普遍的同情。即使有的背叛過你。
 
 	IV. No shortcuts.

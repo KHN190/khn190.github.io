@@ -10,18 +10,19 @@
 // Sass Modules
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 
+@use 'Base';
+@use 'Blockquote';
+@use 'Button';
+@use 'Code';
+@use 'Divider';
+@use 'Form';
+@use 'Grid';
+@use 'Link';
+@use 'List';
+@use 'Spacing';
+@use 'Table';
+@use 'Typography';
+@use 'Image';
+@use 'Utility';
+
 @import 'Color';
-@import 'Base';
-@import 'Blockquote';
-@import 'Button';
-@import 'Code';
-@import 'Divider';
-@import 'Form';
-@import 'Grid';
-@import 'Link';
-@import 'List';
-@import 'Spacing';
-@import 'Table';
-@import 'Typography';
-@import 'Image';
-@import 'Utility';

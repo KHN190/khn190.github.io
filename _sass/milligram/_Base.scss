@@ -1,3 +1,5 @@
+@use "Color";
+
 /*!
  * Milligram-scss v1.3.0
  * https://milligram.github.io
@@ -5,7 +7,6 @@
  * Copyright (c) 2017 CJ Patoilo
  * Licensed under the MIT license
  */
-
 
 // Base
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -26,12 +27,16 @@ html {
 
 // Default body styles
 body {
-	color: $color-secondary;
-	font-family: 'Noto Serif TC', 'Noto Serif SC', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+	color: Color.$color-secondary;
+	font-family: -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif,
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC";
 	font-size: 1.6em; // Currently ems cause chrome bug misinterpreting rems on body element
 	font-weight: 300;
 	letter-spacing: .01em;
 	line-height: 1.8;
+	/* 取消东亚全角替换 */
+  	font-variant-east-asian: normal;
+  	font-feature-settings: "fwid" 0;
 }
 
 .post-content {

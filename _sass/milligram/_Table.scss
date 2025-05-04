@@ -1,3 +1,5 @@
+@use "Color";
+
 /*!
  * Milligram-scss v1.3.0
  * https://milligram.github.io
@@ -17,7 +19,7 @@ table {
 
 td,
 th {
-	border-bottom: .1rem solid $color-quinary;
+	border-bottom: .1rem solid Color.$color-quinary;
 	padding: 1.2rem 1.5rem;
 	text-align: left;
 

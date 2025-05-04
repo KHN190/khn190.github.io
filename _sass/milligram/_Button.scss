@@ -1,3 +1,5 @@
+@use "Color";
+
 /*!
  * Milligram-scss v1.3.0
  * https://milligram.github.io
@@ -15,10 +17,10 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-	background-color: $color-primary;
-	border: .1rem solid $color-primary;
+	background-color: Color.$color-primary;
+	border: .1rem solid Color.$color-primary;
 	border-radius: .4rem;
-	color: $color-initial;
+	color: Color.$color-initial;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 1.1rem;
@@ -34,9 +36,9 @@ input[type='submit'] {
 
 	&:focus,
 	&:hover {
-		background-color: $color-secondary;
-		border-color: $color-secondary;
-		color: $color-initial;
+		background-color: Color.$color-secondary;
+		border-color: Color.$color-secondary;
+		color: Color.$color-initial;
 		outline: 0;
 	}
 
@@ -46,20 +48,20 @@ input[type='submit'] {
 
 		&:focus,
 		&:hover {
-			background-color: $color-primary;
-			border-color: $color-primary;
+			background-color: Color.$color-primary;
+			border-color: Color.$color-primary;
 		}
 	}
 
 	&.button-outline {
 		background-color: transparent;
-		color: $color-primary;
+		color: Color.$color-primary;
 
 		&:focus,
 		&:hover {
 			background-color: transparent;
-			border-color: $color-secondary;
-			color: $color-secondary;
+			border-color: Color.$color-secondary;
+			color: Color.$color-secondary;
 		}
 
 		&[disabled] {
@@ -67,7 +69,7 @@ input[type='submit'] {
 			&:focus,
 			&:hover {
 				border-color: inherit;
-				color: $color-primary;
+				color: Color.$color-primary;
 			}
 		}
 	}
@@ -75,20 +77,20 @@ input[type='submit'] {
 	&.button-clear {
 		background-color: transparent;
 		border-color: transparent;
-		color: $color-primary;
+		color: Color.$color-primary;
 
 		&:focus,
 		&:hover {
 			background-color: transparent;
 			border-color: transparent;
-			color: $color-secondary;
+			color: Color.$color-secondary;
 		}
 
 		&[disabled] {
 
 			&:focus,
 			&:hover {
-				color: $color-primary;
+				color: Color.$color-primary;
 			}
 		}
 	}

@@ -1,3 +1,5 @@
+@use "Color";
+
 /*!
  * Milligram-scss v1.3.0
  * https://milligram.github.io
@@ -12,6 +14,6 @@
 
 hr {
 	border: 0;
-	border-top: .1rem solid $color-tertiary;
+	border-top: .1rem solid Color.$color-tertiary;
 	margin: 3.0rem 0;
 }
