@@ -9,7 +9,19 @@ $grey-color-dark:  darken($grey-color, 25%);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "milligram/milligram",
-        "base",
-        "layout"
+  "milligram/milligram",
+  "base",
+  "layout"
 ;
+
+/* —— 以下是 typography 覆盖 —— */
+html {
+  // 先列出常见半角英文字体，再回落到中文
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC";
+
+  // 关掉东亚全角特性，让标点和拉丁字母都保持半角
+  font-variant-east-asian: normal;
+  font-feature-settings: "fwid" 0;
+}
