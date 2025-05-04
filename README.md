@@ -1,17 +1,3 @@
-# urban-theme
+# Intro
 
-This theme is a Jekyll port of http://erosie.net/ with some modifications. It is designed for visual artists.
-
-## Content
-
-* [ ] 關於媒介的博客
-* [ ] code project
-	* [ ] interpreter
-	* [ ] editor
-	* [ ] game engine
-	* [ ] games
-* [ ] art project
-	* [ ] exhibition
-* [ ] resume
-	* [ ] code experience
-	* [ ] art experience
+The site for my personal on-going and archived projects. I use theme by a Jekyll port of http://erosie.net/ with some modifications.
