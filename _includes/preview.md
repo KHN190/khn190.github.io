@@ -12,7 +12,7 @@ The desert is sacred to Huicol people, for the presence of Peyote cactus and bei
 
 A few more visible projects and collaborations:
 
-* May 2025. Invisible Water. 
+* May 2025. [Invisible Water](https://vimeo.com/1081693677). 
 	* Interactive sculpture collaboration, sound and interaction design. Brooklyn, NY.
 * July 2021. An exhibition for poetry. 
 	* Latitude Gallery, Brooklyn, NY.
