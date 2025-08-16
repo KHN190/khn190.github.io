@@ -10,7 +10,7 @@ I recreate the ghost town through 3D scans, sound recordings, poems and puzzles 
 
 The desert is sacred to [Huicol](https://en.wikipedia.org/wiki/Huichol) people, which has been elevated as an UNESCO cultural heritage in 2025, for the presence of Peyote cactus and being the place for hosting hikuri pilgrimage. I lived in a friend's house Casa de Pirules, which has been built by him by hand since 17 years ago.
 
-_[Early release access](http://knh190.itch.io/el-potrero)._
+* [Early access](http://knh190.itch.io/el-potrero).
 
 ---
 
