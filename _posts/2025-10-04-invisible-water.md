@@ -3,7 +3,7 @@ layout: post
 title:  "Invisible Water (2025)"
 date:   2025-10-04 00:00:00
 categories: interactives
-preview: /assets/img/machine/iw01.png
+preview: /assets/img/machine/iw_preview.png
 ---
 
 **Invisible Water** is a device that projects an imagined industrial soundscape into a theatre space. It also incorporates the site-specific history of the exhibition through a miniature landscape.
