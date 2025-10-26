@@ -21,7 +21,7 @@ A 3D-printed box with a camera, a yarn ball, a virtual body of water. Within the
 - USB Camera: 60 fps, 120 FOV, 720p
 - 3D-printed device: 2mm resin
 - Raspberry Pi / MacBook Pro
-- [Dujiangyan](https://en.wikipedia.org/wiki/Dujiangyan), a 2250 year old ancient irrigation system riverbed cobblestones
+- Cobblestones from [Dujiangyan](https://en.wikipedia.org/wiki/Dujiangyan), a 2250 year old ancient irrigation system riverbed
 - Cat stick + blue yarn ball
 - Theatre audio system
 
