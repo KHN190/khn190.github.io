@@ -1,0 +1,5 @@
+@use "sass:color";
+
+$grey-color:       #828282;
+$grey-color-light: color.scale($grey-color, $lightness: 40%);
+$grey-color-dark:  color.scale($grey-color, $lightness: -25%);

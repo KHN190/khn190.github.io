@@ -1,3 +1,5 @@
+@use "milligram/Color";
+
 /**
  * Icons
  */
@@ -10,7 +12,7 @@
         vertical-align: middle;
 
         path {
-            fill: $color-secondary;
+            fill: Color.$color-secondary;
         }
     }
 }

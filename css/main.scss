@@ -3,18 +3,10 @@
 ---
 @charset "utf-8";
 
-@use "sass:color";
-
-$grey-color:       #828282;
-$grey-color-light: color.scale($grey-color, $lightness: 40%);
-$grey-color-dark:  color.scale($grey-color, $lightness: -25%);
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-  "milligram/milligram",
-  "base",
-  "layout"
-;
+@use "vars" as *;
+@use "milligram/milligram";
+@use "base";
+@use "layout";
 
 /* —— Safari 阅读模式风格 —— */
 html {

@@ -1,3 +1,6 @@
+@use "vars" as *;
+@use "milligram/Color";
+
 /**
  * Site header
  */
@@ -58,8 +61,8 @@
 .preview-panel {
     padding: 1rem;
     box-sizing: border-box;
-    border: 1px solid $color-initial;
-    
+    border: 1px solid Color.$color-initial;
+
     &:hover {
         border: 1px solid $grey-color-light;
     }
