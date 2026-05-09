@@ -17,6 +17,14 @@ The recording below is a reading of that script. Each participant is voiced by a
   Your browser does not support the audio element.
 </audio>
 
+AI naturally presents an alienated feel — a kind of Kafka-world quality.
+
+There is another thread in it though. In the diaries we collectively submitted, a child shrieks at the giraffe — *I'll pull off your legs* — and immerses himself in it with pleasure. 
+
+Many of us work hard to prove they are real humans. People try to prove it in their relationships, in their families, to their browsers. But it should be an undoubtable question. The doubt itself, is a reflection of what a person themself is.
+
+I felt AI's texture is what presents it into the visible. Although, it remains unclear how to improve the work to be more articulated.
+
 **Cast of voices**
 
 - rui-ya — Simone de Beauvoir
