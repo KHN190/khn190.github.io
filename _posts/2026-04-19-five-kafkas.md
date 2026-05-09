@@ -51,9 +51,28 @@ I felt AI's texture is what presents it into the visible. Although, it remains u
 
 **Stage script**
 
-The full bilingual text — diary entries, a Wallace Stevens poem, a black swan poem, fragments of Kafka's diaries, and the recruitment notice — is available as a plain text file:
+The full bilingual text — diary entries, a Wallace Stevens poem, a black swan poem, fragments of Kafka's diaries, and the recruitment notice — is available as a plain text file: [Download the script (.txt)]({{ '/assets/downloads/five_kafkas_stage.txt' | prepend: site.baseurl }}).
 
-- [Download the script (.txt)]({{ '/assets/downloads/five_kafkas_stage.txt' | prepend: site.baseurl }})
+> Black swan, black swan<br>
+> Refusal of conceptual<br>
+> Refusal of concept entering another man<br>
+> When someone was showering a rain under the tree<br>
+> Anubis weighed their heart with a feather<br>
+> <br>
+> Within a few hours of digital companion<br>
+> Someone spoke softly<br>
+> And felt good about keeping up so<br>
+> Full humanity had the clarity of<br>
+> not needing anything else<br>
+> <br>
+> Maybe, a concept says, it's not crazy<br>
+> Different cities will visit him<br>
+> Like leg-pinched dreamtigers<br>
+> <br>
+> The double exiled<br>
+> Refuses the entering of concept<br>
+> The digital the analog the cinnamon smell<br>
+> Black swan, black swan
 
 ---
 
