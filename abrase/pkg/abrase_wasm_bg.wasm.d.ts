@@ -1,0 +1,37 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export const __wbg_get_runresult_error: (a: number) => [number, number];
+export const __wbg_get_runresult_ok: (a: number) => number;
+export const __wbg_get_runresult_stderr: (a: number) => [number, number];
+export const __wbg_get_runresult_stdout: (a: number) => [number, number];
+export const __wbg_get_runresult_value: (a: number) => [number, number];
+export const __wbg_get_runresult_warnings: (a: number) => [number, number];
+export const __wbg_runresult_free: (a: number, b: number) => void;
+export const __wbg_session_free: (a: number, b: number) => void;
+export const __wbg_set_runresult_error: (a: number, b: number, c: number) => void;
+export const __wbg_set_runresult_ok: (a: number, b: number) => void;
+export const __wbg_set_runresult_stderr: (a: number, b: number, c: number) => void;
+export const __wbg_set_runresult_stdout: (a: number, b: number, c: number) => void;
+export const __wbg_set_runresult_value: (a: number, b: number, c: number) => void;
+export const __wbg_set_runresult_warnings: (a: number, b: number, c: number) => void;
+export const check: (a: number, b: number) => number;
+export const check_with: (a: number, b: number, c: number, d: number) => number;
+export const example_names: () => [number, number];
+export const example_source: (a: number, b: number) => [number, number];
+export const run: (a: number, b: number) => number;
+export const run_with: (a: number, b: number, c: number, d: number) => number;
+export const session_heap_live_count: (a: number) => number;
+export const session_new: (a: number, b: number) => [number, number, number];
+export const session_resume: (a: number, b: bigint) => [number, number, number];
+export const session_take_stderr: (a: number) => [number, number];
+export const session_take_stdout: (a: number) => [number, number];
+export const version: () => [number, number];
+export const init: () => void;
+export const __wbindgen_free: (a: number, b: number, c: number) => void;
+export const __wbindgen_malloc: (a: number, b: number) => number;
+export const __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+export const __wbindgen_externrefs: WebAssembly.Table;
+export const __externref_drop_slice: (a: number, b: number) => void;
+export const __externref_table_dealloc: (a: number) => void;
+export const __wbindgen_start: () => void;
