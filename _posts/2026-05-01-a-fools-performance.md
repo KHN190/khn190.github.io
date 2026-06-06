@@ -19,7 +19,7 @@ An unofficial performance at an art fair, about four hours, I dressed as [Chibi 
 
 By taking the form of Chibi Maruko-chan — a cute, beloved ordinary girl who was watched on TV with popularity at my childhood — and the offering of rental, I dispositioned myself under the power of the audience. The familiar, harmless figure became a vessel for whatever the viewer wished to play with.
 
-A virtual auction followed, where people could tag anybody anything. People hated me - I received 10+ tags — with attacks calling it a commercialism trap, complaints of "cheap value" and "used-ups". The only positive tag came from a child, who liked me for the clown dressing.
+A virtual auction followed, where people could tag anybody anything. Most people hated me - I received 10+ tags — with calling of commercialism trap, complaints of "cheap value" and "used-ups". The only positive tag came from a teen, who liked me for the clown dressing.
 
 Despite, I felt unsatisfied with retreated engagement of audiences. I intended to perform it again on street in the near future.
 
