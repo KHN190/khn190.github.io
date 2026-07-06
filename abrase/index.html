@@ -57,10 +57,12 @@
   .editor { flex: 1; position: relative; min-width: 0; }
   .editor pre, .editor textarea {
     position: absolute; inset: 0; margin: 0; padding: 1rem 1.25rem;
-    font: 13px/1.6 var(--mono);
+    font-family: var(--mono); font-size: 13px; line-height: 20px; font-weight: 400;
     white-space: pre; overflow: auto; tab-size: 4;
+    letter-spacing: 0; -webkit-text-size-adjust: 100%; text-rendering: auto;
   }
   .editor pre { pointer-events: none; color: var(--ink); }
+  .editor pre code, .editor pre code * { font: inherit; line-height: 20px; vertical-align: baseline; }
   .editor textarea {
     resize: none; border: none; outline: none;
     background: transparent; color: transparent; caret-color: var(--ink);
@@ -117,7 +119,7 @@
   <nav id="tabs"></nav>
   <div class="editor">
     <pre aria-hidden="true"><code id="hl"></code></pre>
-    <textarea id="src" spellcheck="false"></textarea>
+    <textarea id="src" spellcheck="false" wrap="off" autocapitalize="off" autocorrect="off"></textarea>
   </div>
 </main>
 <div class="panel">
