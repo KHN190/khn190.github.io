@@ -123,6 +123,13 @@ export class Posara {
         const ret = wasm.posara_max_files(this.__wbg_ptr);
         return ret >>> 0;
     }
+    /**
+     * @returns {bigint}
+     */
+    max_ops() {
+        const ret = wasm.posara_max_ops(this.__wbg_ptr);
+        return BigInt.asUintN(64, ret);
+    }
     constructor() {
         const ret = wasm.posara_new();
         if (ret[2]) {
@@ -170,6 +177,13 @@ export class Posara {
      */
     set_input(buttons, key) {
         wasm.posara_set_input(this.__wbg_ptr, buttons, key);
+    }
+    /**
+     * @returns {bigint}
+     */
+    steps() {
+        const ret = wasm.posara_steps(this.__wbg_ptr);
+        return BigInt.asUintN(64, ret);
     }
     /**
      * @returns {string}

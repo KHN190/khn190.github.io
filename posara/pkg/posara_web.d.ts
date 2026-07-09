@@ -15,11 +15,13 @@ export class Posara {
     load_pk(bytes: Uint8Array): void;
     load_src(src: string): void;
     max_files(): number;
+    max_ops(): bigint;
     constructor();
     read_file(name: string): Uint8Array | undefined;
     remove_file(name: string): boolean;
     sample_rate(): number;
     set_input(buttons: number, key: number): void;
+    steps(): bigint;
     version(): string;
     width(): number;
 }
@@ -43,11 +45,13 @@ export interface InitOutput {
     readonly posara_load_pk: (a: number, b: number, c: number) => [number, number];
     readonly posara_load_src: (a: number, b: number, c: number) => [number, number];
     readonly posara_max_files: (a: number) => number;
+    readonly posara_max_ops: (a: number) => bigint;
     readonly posara_new: () => [number, number, number];
     readonly posara_read_file: (a: number, b: number, c: number) => [number, number];
     readonly posara_remove_file: (a: number, b: number, c: number) => number;
     readonly posara_sample_rate: (a: number) => number;
     readonly posara_set_input: (a: number, b: number, c: number) => void;
+    readonly posara_steps: (a: number) => bigint;
     readonly posara_version: (a: number) => [number, number];
     readonly posara_width: (a: number) => number;
     readonly __wbindgen_free: (a: number, b: number, c: number) => void;
