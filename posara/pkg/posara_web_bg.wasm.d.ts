@@ -1,0 +1,31 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export const __wbg_posara_free: (a: number, b: number) => void;
+export const init: () => void;
+export const posara_add_file: (a: number, b: number, c: number, d: number, e: number) => [number, number];
+export const posara_audio_pull: (a: number, b: number, c: number, d: any) => void;
+export const posara_drain_stdout: (a: number) => [number, number];
+export const posara_frame: (a: number) => [number, number, number];
+export const posara_framebuffer: (a: number) => [number, number];
+export const posara_height: (a: number) => number;
+export const posara_list_files: (a: number) => [number, number];
+export const posara_load_entry: (a: number, b: number, c: number) => [number, number];
+export const posara_load_pk: (a: number, b: number, c: number) => [number, number];
+export const posara_load_src: (a: number, b: number, c: number) => [number, number];
+export const posara_max_files: (a: number) => number;
+export const posara_new: () => [number, number, number];
+export const posara_read_file: (a: number, b: number, c: number) => [number, number];
+export const posara_remove_file: (a: number, b: number, c: number) => number;
+export const posara_sample_rate: (a: number) => number;
+export const posara_set_input: (a: number, b: number, c: number) => void;
+export const posara_version: (a: number) => [number, number];
+export const posara_width: (a: number) => number;
+export const __wbindgen_free: (a: number, b: number, c: number) => void;
+export const __wbindgen_malloc: (a: number, b: number) => number;
+export const __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+export const __externref_table_alloc: () => number;
+export const __wbindgen_externrefs: WebAssembly.Table;
+export const __externref_table_dealloc: (a: number) => void;
+export const __externref_drop_slice: (a: number, b: number) => void;
+export const __wbindgen_start: () => void;
