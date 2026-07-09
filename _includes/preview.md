@@ -7,7 +7,7 @@ I've done some street performances, programming projects, video games, poetry. F
 A few visible projects and collaborations:
 
 * June 2026, [Posara](interactives/2026/06/06/posara/).
-	* An early MacOS aesthetic visualaudio runtime designed for live coding, synth, visuals, video games and hardware. Built on extension of Abrase runtime.
+	* An early MacOS aesthetic visualaudio runtime designed for live coding, synth, visuals, video games and hardware. Built on extension of Abrase runtime. Play in browswer [NOW](https://khn190.github.io/abrase/).
 * June 2026 , [Abrase](/interactives/2026/06/06/abrase/).
 	* A rust-inspired programming language. Designed for creative coding, visualaudio and hardware. Try it [online](https://khn190.github.io/abrase/). Read about it [here](https://medium.com/@shanjian1984/abrase-i-designed-a-programming-language-for-claude-05cb0e4df3e5).
 * Sep 2025. [Invisible Water](/interactives/2025/10/04/invisible-water/). 
